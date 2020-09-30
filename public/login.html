@@ -1,0 +1,151 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fir=no">
+	<title>Login Page</title>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"> </script>
+	<script type="text/javascript" src="/jssource/jquery-3.5.0.min.js"> </script>
+	<script type="text/javascript" src="/jssource/jquery.mockjax.js"> </script>
+	<link rel="stylesheet" href="css/milk.css">
+	<link src="http://libs.baidu.com/jquery/1.9.0/jquery.js">
+	<link type="text/javascript" src="/jssource/jquery-3.5.0.min.js">
+	<link type="text/javascript" src="/jssource/jquery.mockjax.js">
+	
+
+	<!-- 
+	<script src="Reources/jssource/jquery-3.5.0.min.js"></script>
+	<script src="Reources/jssource/jquery.js"></script>
+	<script src="Reources/jssource/jquery.mockjax.js"></script>
+	<script src="Reources/jssource/jquery.validate.js"></script>
+	<script src="../task4.js"></script>
+	<script src="Reources/jssource/Event.js"></script> -->
+
+
+</head>
+
+<body>
+	<div id="main">
+		<div id="content">
+			<div id="header">
+				<div id="headerlogo">
+					<img src="images/milk.png" alt="Remember The Milk">
+				</div>
+			</div>
+			<div style="clear: both;">
+				<div></div>
+			</div>
+			<div class="content">
+				<div id="signupbox">
+					<div id="signuptab">
+						<ul>
+							<li id="signupcurrent"><a href="index.html">Create Account</a>
+							</li>
+							<li id="signupcurrent"><a href=" ">
+									<font size="3px">Log In</font>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id="signupwrap">
+						<form id="Loginform" autocomplete="off" method="POST" action="/login">
+							<table>
+
+								<tr>
+									<td class="label">
+										<label id="lemail" for="email">Email Address</label>
+									</td>
+									<td class="field">
+										<input id="email" name="email" type="text" value="" maxlength="150">
+									</td>
+									<td class="status"></td>
+								</tr>
+
+
+								<tr>
+									<td class="label">
+										<label id="lpassword" for="password">Password</label>
+									</td>
+									<td class="field">
+										<input id="password" name="password" type="password" maxlength="50" value="">
+									</td>
+									<td class="status"></td>
+								</tr>
+
+								<tr>
+									<td class="label">
+									</td>
+									<td class="field">
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">Rmember me
+									</td>
+									<td class="field"><input type="checkbox" class="remember" checked><br /><br />
+									</td>
+								</tr>
+
+
+								<tr>
+									<td class="label">
+									</td>
+									<td class="field">Forgot the password? Click<a href="./forgotP.html"> Here </a>to
+										send a reset email
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="label">
+										<div class="btn">
+											<button type="submit" onclick="Submit()"> Log in </button>
+										</div>
+									</td>
+
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var email = localStorage.getItem("email");
+		var password = localStorage.getItem("password");
+		$("#email").val(email)
+		$("#password").val(password)
+		if (email != '' && password != '') {
+			$("input[type=checkbox]").prop('checked', true)
+
+		}
+	});
+	function Submit(event) {
+		if ($("input[type=checkbox]").prop('checked')) {
+			localStorage.setItem("email", $("#email").val())
+			localStorage.setItem("password", $("#password").val())
+		} else {
+			localStorage.setItem("email", '')
+			localStorage.setItem("password", '')
+		}
+
+	}
+
+
+</script>
+
+
+
+
+</html>
